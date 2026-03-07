@@ -24,7 +24,7 @@ export function OrchestratorsGrid() {
   }, [searchQuery])
 
   return (
-    <div className="space-y-6">
+    <div className="mx-auto max-w-[1400px] space-y-6">
       {/* Header */}
       <div className="flex items-center gap-3">
         <Bot className="h-6 w-6 text-foreground" />

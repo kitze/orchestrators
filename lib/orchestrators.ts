@@ -100,7 +100,7 @@ export const orchestrators: Orchestrator[] = [
   {
     id: "t3-code",
     name: "T3 Code",
-    url: "https://github.com/chrisdesrochers/t3chat-desktop",
+    url: "https://t3.codes/",
     tech: "Electron",
     features: [],
     icon: Triangle,
