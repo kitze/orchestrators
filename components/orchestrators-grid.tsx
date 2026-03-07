@@ -18,9 +18,7 @@ export function OrchestratorsGrid() {
       const matchesSearch =
         searchQuery === "" ||
         orchestrator.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        orchestrator.techStack.some((tech) =>
-          tech.toLowerCase().includes(searchQuery.toLowerCase())
-        )
+        orchestrator.tech.toLowerCase().includes(searchQuery.toLowerCase())
       return matchesSearch
     })
   }, [searchQuery])

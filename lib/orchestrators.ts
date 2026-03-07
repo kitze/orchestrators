@@ -1,17 +1,15 @@
-import { LucideIcon, Sparkles, Cloud, Activity, Layers } from "lucide-react"
+import { LucideIcon, Sparkles, Cloud, Activity, Layers, Lightbulb, Hexagon, Triangle } from "lucide-react"
 
 // All comparable features across orchestrators
 export const allFeatures = [
-  "Multi-file Editing",
-  "Git Integration",
-  "Shell Execution",
-  "Parallel Tasks",
-  "Cloud Sandbox",
-  "Native macOS",
-  "Cross-platform",
-  "Plugin System",
-  "Real-time Monitoring",
-  "PR Automation",
+  "Worktrees",
+  "Rename Project",
+  "Menu Bar",
+  "Diff Pane",
+  "Dictation",
+  "Exposes Server",
+  "Agent Management",
+  "Usage Stats",
 ] as const
 
 export type Feature = (typeof allFeatures)[number]
@@ -19,7 +17,8 @@ export type Feature = (typeof allFeatures)[number]
 export interface Orchestrator {
   id: string
   name: string
-  techStack: string[]
+  url: string
+  tech: string
   features: Feature[]
   icon: LucideIcon
 }
@@ -28,59 +27,88 @@ export const orchestrators: Orchestrator[] = [
   {
     id: "claude-code",
     name: "Claude Code",
-    techStack: ["TypeScript", "Node.js"],
+    url: "https://claude.com/download",
+    tech: "Electron",
     features: [
-      "Multi-file Editing",
-      "Git Integration",
-      "Shell Execution",
+      "Worktrees",
+      "Diff Pane",
+      "Agent Management",
     ],
     icon: Sparkles,
   },
   {
     id: "codex",
     name: "Codex",
-    techStack: ["Python", "Cloud"],
+    url: "https://openai.com/index/introducing-the-codex-app/",
+    tech: "Electron",
     features: [
-      "Multi-file Editing",
-      "Git Integration",
-      "Parallel Tasks",
-      "Cloud Sandbox",
-      "PR Automation",
+      "Worktrees",
+      "Diff Pane",
+      "Agent Management",
     ],
     icon: Cloud,
   },
   {
     id: "codex-monitor",
     name: "Codex Monitor",
-    techStack: ["Swift", "SwiftUI"],
+    url: "https://codexmonitor.app",
+    tech: "Tauri",
     features: [
-      "Native macOS",
-      "Real-time Monitoring",
+      "Worktrees",
+      "Menu Bar",
+      "Diff Pane",
+      "Agent Management",
+      "Usage Stats",
     ],
     icon: Activity,
   },
   {
     id: "conductor",
     name: "Conductor",
-    techStack: ["Rust", "Tauri"],
+    url: "https://conductor.build",
+    tech: "Electron",
     features: [
-      "Multi-file Editing",
-      "Cross-platform",
-      "Plugin System",
-      "Real-time Monitoring",
-      "Parallel Tasks",
+      "Worktrees",
+      "Diff Pane",
+      "Agent Management",
     ],
     icon: Layers,
+  },
+  {
+    id: "jean",
+    name: "Jean",
+    url: "https://jean.build",
+    tech: "Electron",
+    features: [
+      "Worktrees",
+      "Diff Pane",
+      "Agent Management",
+    ],
+    icon: Lightbulb,
+  },
+  {
+    id: "polyscope",
+    name: "Polyscope",
+    url: "https://getpolyscope.com",
+    tech: "Electron",
+    features: [
+      "Worktrees",
+      "Agent Management",
+    ],
+    icon: Hexagon,
+  },
+  {
+    id: "t3-code",
+    name: "T3 Code",
+    url: "https://github.com/chrisdesrochers/t3chat-desktop",
+    tech: "Electron",
+    features: [],
+    icon: Triangle,
   },
 ]
 
 export const techColors: Record<string, string> = {
+  Electron: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
   Swift: "bg-orange-500/20 text-orange-400 border-orange-500/30",
   Tauri: "bg-amber-500/20 text-amber-400 border-amber-500/30",
-  Rust: "bg-orange-600/20 text-orange-300 border-orange-600/30",
-  TypeScript: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  Python: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
-  "Node.js": "bg-green-500/20 text-green-400 border-green-500/30",
-  SwiftUI: "bg-blue-400/20 text-blue-300 border-blue-400/30",
-  Cloud: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
 }
