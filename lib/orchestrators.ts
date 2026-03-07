@@ -1,3 +1,5 @@
+import { LucideIcon, Sparkles, Cloud, Activity, Layers } from "lucide-react"
+
 export interface Orchestrator {
   id: string
   name: string
@@ -7,6 +9,7 @@ export interface Orchestrator {
   url?: string
   github?: string
   category: "desktop" | "cli" | "web" | "sdk"
+  icon: LucideIcon
 }
 
 export const orchestrators: Orchestrator[] = [
@@ -26,6 +29,7 @@ export const orchestrators: Orchestrator[] = [
     ],
     url: "https://claude.ai/code",
     category: "cli",
+    icon: Sparkles,
   },
   {
     id: "codex",
@@ -43,6 +47,7 @@ export const orchestrators: Orchestrator[] = [
     ],
     url: "https://openai.com/codex",
     category: "web",
+    icon: Cloud,
   },
   {
     id: "codex-monitor",
@@ -59,6 +64,7 @@ export const orchestrators: Orchestrator[] = [
       "Activity logging",
     ],
     category: "desktop",
+    icon: Activity,
   },
   {
     id: "conductor",
@@ -76,6 +82,7 @@ export const orchestrators: Orchestrator[] = [
     ],
     github: "https://github.com/conductor-ai/conductor",
     category: "desktop",
+    icon: Layers,
   },
 ]
 
