@@ -4,33 +4,26 @@ import { useState, useMemo } from "react"
 import { orchestrators } from "@/lib/orchestrators"
 import { OrchestratorCard } from "./orchestrator-card"
 import { OrchestratorTable } from "./orchestrator-table"
-import { CategoryFilter } from "./category-filter"
 import { Search, LayoutGrid, TableIcon, Bot } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type ViewMode = "cards" | "table"
 
 export function OrchestratorsGrid() {
-  const [activeCategory, setActiveCategory] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
   const [viewMode, setViewMode] = useState<ViewMode>("table")
 
   const filteredOrchestrators = useMemo(() => {
     return orchestrators.filter((orchestrator) => {
-      const matchesCategory =
-        activeCategory === "all" || orchestrator.category === activeCategory
       const matchesSearch =
         searchQuery === "" ||
         orchestrator.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        orchestrator.description
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase()) ||
         orchestrator.techStack.some((tech) =>
           tech.toLowerCase().includes(searchQuery.toLowerCase())
         )
-      return matchesCategory && matchesSearch
+      return matchesSearch
     })
-  }, [activeCategory, searchQuery])
+  }, [searchQuery])
 
   return (
     <div className="space-y-6">
@@ -56,40 +49,32 @@ export function OrchestratorsGrid() {
           />
         </div>
 
-        <div className="flex items-center gap-3">
-          {/* Category filter */}
-          <CategoryFilter
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-          />
-
-          {/* View toggle */}
-          <div className="flex items-center gap-1 rounded-lg border border-border bg-secondary p-1">
-            <button
-              onClick={() => setViewMode("table")}
-              className={cn(
-                "flex items-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors",
-                viewMode === "table"
-                  ? "bg-background text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-              aria-label="Table view"
-            >
-              <TableIcon className="h-4 w-4" />
-            </button>
-            <button
-              onClick={() => setViewMode("cards")}
-              className={cn(
-                "flex items-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors",
-                viewMode === "cards"
-                  ? "bg-background text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-              aria-label="Card view"
-            >
-              <LayoutGrid className="h-4 w-4" />
-            </button>
-          </div>
+        {/* View toggle */}
+        <div className="flex items-center gap-1 rounded-lg border border-border bg-secondary p-1">
+          <button
+            onClick={() => setViewMode("table")}
+            className={cn(
+              "flex items-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors",
+              viewMode === "table"
+                ? "bg-background text-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+            aria-label="Table view"
+          >
+            <TableIcon className="h-4 w-4" />
+          </button>
+          <button
+            onClick={() => setViewMode("cards")}
+            className={cn(
+              "flex items-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors",
+              viewMode === "cards"
+                ? "bg-background text-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+            aria-label="Card view"
+          >
+            <LayoutGrid className="h-4 w-4" />
+          </button>
         </div>
       </div>
 
@@ -111,7 +96,7 @@ export function OrchestratorsGrid() {
             No orchestrators found
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Try adjusting your search or filter criteria
+            Try adjusting your search criteria
           </p>
         </div>
       )}

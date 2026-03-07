@@ -1,11 +1,11 @@
 "use client"
 
-import { ExternalLink, Github, Check } from "lucide-react"
+import { Check, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
   type Orchestrator,
   techColors,
-  categoryLabels,
+  allFeatures,
 } from "@/lib/orchestrators"
 
 interface OrchestratorTableProps {
@@ -18,11 +18,20 @@ export function OrchestratorTable({ orchestrators }: OrchestratorTableProps) {
       <table className="w-full text-left text-sm">
         <thead className="border-b border-border bg-secondary/50">
           <tr>
-            <th className="px-4 py-3 font-medium text-foreground">Name</th>
-            <th className="px-4 py-3 font-medium text-foreground">Category</th>
-            <th className="px-4 py-3 font-medium text-foreground">Tech Stack</th>
-            <th className="px-4 py-3 font-medium text-foreground">Features</th>
-            <th className="px-4 py-3 font-medium text-foreground">Links</th>
+            <th className="sticky left-0 z-10 min-w-[160px] bg-secondary/50 px-4 py-3 font-medium text-foreground">
+              Name
+            </th>
+            <th className="min-w-[140px] px-4 py-3 font-medium text-foreground">
+              Tech Stack
+            </th>
+            {allFeatures.map((feature) => (
+              <th
+                key={feature}
+                className="min-w-[100px] px-3 py-3 text-center font-medium text-foreground"
+              >
+                <span className="text-xs">{feature}</span>
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody className="divide-y divide-border">
@@ -33,25 +42,15 @@ export function OrchestratorTable({ orchestrators }: OrchestratorTableProps) {
                 key={orchestrator.id}
                 className="bg-card transition-colors hover:bg-secondary/30"
               >
-                <td className="px-4 py-4">
+                <td className="sticky left-0 z-10 bg-card px-4 py-4 transition-colors group-hover:bg-secondary/30">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-secondary">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary">
                       <Icon className="h-4 w-4 text-foreground" />
                     </div>
-                    <div>
-                      <div className="font-medium text-foreground">
-                        {orchestrator.name}
-                      </div>
-                      <div className="mt-0.5 max-w-[200px] text-xs text-muted-foreground line-clamp-1">
-                        {orchestrator.description}
-                      </div>
-                    </div>
+                    <span className="font-medium text-foreground">
+                      {orchestrator.name}
+                    </span>
                   </div>
-                </td>
-                <td className="px-4 py-4">
-                  <span className="whitespace-nowrap rounded-full border border-border bg-secondary px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                    {categoryLabels[orchestrator.category]}
-                  </span>
                 </td>
                 <td className="px-4 py-4">
                   <div className="flex flex-wrap gap-1.5">
@@ -69,50 +68,18 @@ export function OrchestratorTable({ orchestrators }: OrchestratorTableProps) {
                     ))}
                   </div>
                 </td>
-                <td className="px-4 py-4">
-                  <ul className="space-y-1">
-                    {orchestrator.features.slice(0, 3).map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-center gap-1.5 text-xs text-muted-foreground"
-                      >
-                        <Check className="h-3 w-3 shrink-0 text-accent" />
-                        <span className="line-clamp-1">{feature}</span>
-                      </li>
-                    ))}
-                    {orchestrator.features.length > 3 && (
-                      <li className="text-xs text-muted-foreground/60">
-                        +{orchestrator.features.length - 3} more
-                      </li>
-                    )}
-                  </ul>
-                </td>
-                <td className="px-4 py-4">
-                  <div className="flex gap-2">
-                    {orchestrator.url && (
-                      <a
-                        href={orchestrator.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                        aria-label={`Visit ${orchestrator.name} website`}
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    )}
-                    {orchestrator.github && (
-                      <a
-                        href={orchestrator.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                        aria-label={`View ${orchestrator.name} on GitHub`}
-                      >
-                        <Github className="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
-                </td>
+                {allFeatures.map((feature) => {
+                  const hasFeature = orchestrator.features.includes(feature)
+                  return (
+                    <td key={feature} className="px-3 py-4 text-center">
+                      {hasFeature ? (
+                        <Check className="mx-auto h-4 w-4 text-emerald-400" />
+                      ) : (
+                        <X className="mx-auto h-4 w-4 text-muted-foreground/30" />
+                      )}
+                    </td>
+                  )
+                })}
               </tr>
             )
           })}
