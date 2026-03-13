@@ -1,35 +1,86 @@
-# orchestrators
+# Awesome Agent Orchestrators [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+> A curated list of AI agent orchestrators and desktop interfaces for running, comparing, and managing coding agents.
+>
+> This repository now works in two ways:
+> - a GitHub-friendly awesome list in this README
+> - a Next.js web app for searchable card and table views
 
-## Built with v0
+## Contents
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+- [Comparison table](#comparison-table)
+- [Projects](#projects)
+- [Tracked features](#tracked-features)
+- [About this repo](#about-this-repo)
+- [Development](#development)
+- [Contributing](#contributing)
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_THbya2OMt0xhhs6YQVp9KSwNCidX)
+## Comparison table
 
-## Getting Started
+> Legend: ✅ = currently tracked in this repo, — = not currently tracked.
 
-First, run the development server:
+| Project | Tech | Worktrees | Rename Project | Menu Bar | Diff Pane | Dictation | Exposes Server | Agent Management | Usage Stats |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Claude Code](https://claude.com/download) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
+| [Codex](https://openai.com/index/introducing-the-codex-app/) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
+| [Codex Monitor](https://codexmonitor.app) | Tauri | ✅ | — | ✅ | ✅ | — | — | ✅ | ✅ |
+| [Conductor](https://conductor.build) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
+| [Jean](https://jean.build) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
+| [Polyscope](https://getpolyscope.com) | Electron | ✅ | — | — | — | — | — | ✅ | — |
+| [T3 Code](https://t3.codes/) | Electron | — | — | — | — | — | — | — | — |
+
+## Projects
+
+Projects are listed alphabetically.
+
+- [Claude Code](https://claude.com/download) — Electron. Tracked features: Worktrees, Diff Pane, Agent Management.
+- [Codex](https://openai.com/index/introducing-the-codex-app/) — Electron. Tracked features: Worktrees, Diff Pane, Agent Management.
+- [Codex Monitor](https://codexmonitor.app) — Tauri. Tracked features: Worktrees, Menu Bar, Diff Pane, Agent Management, Usage Stats.
+- [Conductor](https://conductor.build) — Electron. Tracked features: Worktrees, Diff Pane, Agent Management.
+- [Jean](https://jean.build) — Electron. Tracked features: Worktrees, Diff Pane, Agent Management.
+- [Polyscope](https://getpolyscope.com) — Electron. Tracked features: Worktrees, Agent Management.
+- [T3 Code](https://t3.codes/) — Electron. No features are currently tracked in this repo.
+
+## Tracked features
+
+These are the comparison fields currently used by the directory:
+
+- **Worktrees** — support for working across multiple git worktrees.
+- **Rename Project** — ability to rename a project from the UI.
+- **Menu Bar** — menu bar or tray integration.
+- **Diff Pane** — built-in diff or review view.
+- **Dictation** — voice input or dictation support.
+- **Exposes Server** — exposes a local or remote server/API surface.
+- **Agent Management** — tools for viewing or managing agents/sessions.
+- **Usage Stats** — usage, cost, or activity metrics.
+
+## About this repo
+
+This repo includes both the data and the UI for the directory:
+
+- `README.md` — the GitHub-native awesome-list view
+- `lib/orchestrators.ts` — the current source data for orchestrators and tracked features
+- `components/orchestrator-table.tsx` — table UI for the web app
+- `components/orchestrator-card.tsx` — card UI for the web app
+- `app/page.tsx` — homepage entry point
+
+The README is meant to be the fastest way to scan the list on GitHub, while the web app is better for browsing and filtering.
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributing
 
-## Learn More
+If you want to add or update an entry:
 
-To learn more, take a look at the following resources:
+1. Update `lib/orchestrators.ts`.
+2. Keep this README in sync with the same project list and feature matrix.
+3. Prefer official product links and short, factual descriptions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
-
-<a href="https://v0.app/chat/api/kiro/clone/kitze/orchestrators" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+Feature coverage in this repository is intentionally lightweight and may lag behind product updates.
