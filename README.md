@@ -19,15 +19,15 @@
 
 > Legend: ✅ = currently tracked in this repo, — = not currently tracked.
 
-| Project | Tech | Worktrees | Rename Project | Menu Bar | Diff Pane | Dictation | Exposes Server | Agent Management | Usage Stats |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Claude Code](https://claude.com/download) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
-| [Codex](https://openai.com/index/introducing-the-codex-app/) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
-| [Codex Monitor](https://codexmonitor.app) | Tauri | ✅ | — | ✅ | ✅ | — | — | ✅ | ✅ |
-| [Conductor](https://conductor.build) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
-| [Jean](https://jean.build) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
-| [Polyscope](https://getpolyscope.com) | Electron | ✅ | — | — | — | — | — | ✅ | — |
-| [T3 Code](https://t3.codes/) | Electron | — | — | — | — | — | — | — | — |
+| Project | Tech | Worktrees | Rename Project | Menu Bar | Diff Pane | Dictation | Exposes Server | Agent Management | Usage Stats | GitHub Integration | Linear Integration | AI Code Review | MCP Servers | Multiple Backends | Custom Prompts | Image Support | Integrated Terminal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Claude Code](https://claude.com/download) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — | — | — | — | — | — | — | — | — |
+| [Codex](https://openai.com/index/introducing-the-codex-app/) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — | — | — | — | — | — | — | — | — |
+| [Codex Monitor](https://codexmonitor.app) | Tauri | ✅ | — | ✅ | ✅ | — | — | ✅ | ✅ | — | — | — | — | — | — | — | — |
+| [Conductor](https://conductor.build) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — | — | — | — | — | — | — | — | — |
+| [Jean](https://jean.build) | Tauri | ✅ | — | — | ✅ | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Polyscope](https://getpolyscope.com) | Electron | ✅ | — | — | — | — | — | ✅ | — | — | — | — | — | — | — | — | — |
+| [T3 Code](https://t3.codes/) | Electron | — | — | — | — | — | — | — | — | — | — | — | — | — | — | — | — |
 
 ## Projects
 
@@ -37,7 +37,7 @@ Projects are listed alphabetically.
 - [Codex](https://openai.com/index/introducing-the-codex-app/) — Electron. Tracked features: Worktrees, Diff Pane, Agent Management.
 - [Codex Monitor](https://codexmonitor.app) — Tauri. Tracked features: Worktrees, Menu Bar, Diff Pane, Agent Management, Usage Stats.
 - [Conductor](https://conductor.build) — Electron. Tracked features: Worktrees, Diff Pane, Agent Management.
-- [Jean](https://jean.build) — Electron. Tracked features: Worktrees, Diff Pane, Agent Management.
+- [Jean](https://jean.build) — Tauri. Tracked features: Worktrees, Diff Pane, Exposes Server, Agent Management, Usage Stats, GitHub Integration, Linear Integration, AI Code Review, MCP Servers, Multiple Backends, Custom Prompts, Image Support, Integrated Terminal.
 - [Polyscope](https://getpolyscope.com) — Electron. Tracked features: Worktrees, Agent Management.
 - [T3 Code](https://t3.codes/) — Electron. No features are currently tracked in this repo.
 
@@ -53,6 +53,14 @@ These are the comparison fields currently used by the directory:
 - **Exposes Server** — exposes a local or remote server/API surface.
 - **Agent Management** — tools for viewing or managing agents/sessions.
 - **Usage Stats** — usage, cost, or activity metrics.
+- **GitHub Integration** — loading issues/PRs, AI-generated PR content, workflow monitoring.
+- **Linear Integration** — issue tracking with team filtering and context embedding.
+- **AI Code Review** — structured code review findings with severity levels.
+- **MCP Servers** — Model Context Protocol server discovery and per-project management.
+- **Multiple Backends** — support for multiple AI CLI backends (e.g. Claude, Codex, OpenCode).
+- **Custom Prompts** — per-project system prompts and customizable operation prompts.
+- **Image Support** — paste/drop images with auto-processing for vision models.
+- **Integrated Terminal** — built-in terminal emulator per worktree.
 
 ## About this repo
 
