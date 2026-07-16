@@ -27,6 +27,7 @@
 | [Conductor](https://conductor.build) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
 | [Jean](https://jean.build) | Electron | ✅ | — | — | ✅ | — | — | ✅ | — |
 | [Polyscope](https://getpolyscope.com) | Electron | ✅ | — | — | — | — | — | ✅ | — |
+| [SlayZone](https://slayzone.app) | Electron | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — |
 | [T3 Code](https://t3.codes/) | Electron | — | — | — | — | — | — | — | — |
 
 ## Projects
@@ -39,6 +40,7 @@ Projects are listed alphabetically.
 - [Conductor](https://conductor.build) — Electron. Tracked features: Worktrees, Diff Pane, Agent Management.
 - [Jean](https://jean.build) — Electron. Tracked features: Worktrees, Diff Pane, Agent Management.
 - [Polyscope](https://getpolyscope.com) — Electron. Tracked features: Worktrees, Agent Management.
+- [SlayZone](https://slayzone.app) — Electron. Tracked features: Worktrees, Rename Project, Menu Bar, Diff Pane, Exposes Server, Agent Management.
 - [T3 Code](https://t3.codes/) — Electron. No features are currently tracked in this repo.
 
 ## Tracked features

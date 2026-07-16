@@ -1,4 +1,4 @@
-import { LucideIcon, Sparkles, Cloud, Activity, Layers, Lightbulb, Hexagon, Triangle } from "lucide-react"
+import { LucideIcon, Sparkles, Cloud, Activity, Layers, Lightbulb, Hexagon, Triangle, Swords } from "lucide-react"
 
 // All comparable features across orchestrators
 export const allFeatures = [
@@ -114,6 +114,21 @@ export const orchestrators: Orchestrator[] = [
       "Agent Management",
     ],
     icon: Hexagon,
+  },
+  {
+    id: "slayzone",
+    name: "SlayZone",
+    url: "https://slayzone.app",
+    tech: "Electron",
+    features: [
+      "Worktrees",
+      "Rename Project",
+      "Menu Bar",
+      "Diff Pane",
+      "Exposes Server",
+      "Agent Management",
+    ],
+    icon: Swords,
   },
   {
     id: "t3-code",
